@@ -22,6 +22,7 @@ urlpatterns = [
     url('users/', include('users.urls',namespace='users')),
     url('goods/', include('goods.urls',namespace='goods')),
     url('request/', include('request.urls',namespace='request')),
+    url('response/', include('response.urls',namespace='response')),
     ]
     # path('admin/', admin.site.urls), django 2.0
 
