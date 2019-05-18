@@ -14,3 +14,11 @@ def cook_test(request):
     response.set_cookie('name','Alice') # 设置cookie
     print(request.COOKIES.get('name'))  # 读取指定Cookie
     return response
+
+
+def session_test(request):
+    session = HttpResponse('session')
+    request.session['weather'] = 'sunny'  # 设置指定session ,会在cookie里设置sessionid
+    weather = request.session['weather']  # 读取session
+    print(weather)
+    return session
