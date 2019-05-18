@@ -20,7 +20,8 @@ from django.contrib import admin
 urlpatterns = [
     url('admin/', admin.site.urls),
     url('users/', include('users.urls',namespace='users')),
-    url('goods/', include('goods.urls',namespace='goods'))
+    url('goods/', include('goods.urls',namespace='goods')),
+    url('request/', include('request.urls',namespace='request')),
     ]
     # path('admin/', admin.site.urls), django 2.0
 
