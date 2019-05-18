@@ -10,4 +10,5 @@ urlpatterns = [
     url('query/',views.query),
     url('form_data/',views.form_data), # 表单
     url('json_parse',views.json_parse_data), # json
+    url('json',views.json_parse), # json
 ]

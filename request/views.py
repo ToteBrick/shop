@@ -1,6 +1,6 @@
 import json
 
-from django.http import HttpResponse
+from django.http import HttpResponse, JsonResponse
 from django.shortcuts import render
 
 
@@ -44,3 +44,11 @@ def json_parse_data(request):
     dict = json.loads(str_data)
     print(dict)  # 可用postman演示json请求 {'name': 'Tom', 'age': 18}
     return HttpResponse('json parse')
+
+
+# 非表单数据，典型的json，方式二
+def json_parse(request):
+    dict = {'name': 'Tom', 'age': 18}
+    list = [{'name': 'Tom', 'age': 18}, {'name': 'Alice', 'age': 20}]
+    # return JsonResponse(dict)
+    return JsonResponse(list, safe=False) # 传列表要设置safe为False
