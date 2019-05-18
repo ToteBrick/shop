@@ -17,3 +17,12 @@ def login_connect_sort(request, code, city):
     print('city:', city)
     print('code:', code)
     return HttpResponse('URL路径拼接按名称匹配')
+
+# 查询字符串
+def query(request):
+    param = request.GET
+    # / request / query / ?name = 'Jim' & age = 18
+    name = param.get('name')
+    age = param.get('age')
+    print(name,age)
+    return HttpResponse('查询字符串')
