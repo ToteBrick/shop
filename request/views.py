@@ -26,3 +26,9 @@ def query(request):
     age = param.get('age')
     print(name,age)
     return HttpResponse('查询字符串')
+
+# 表单数据 form_data
+def form_data(request):
+    password = request.POST.get('password')
+    print(password)
+    return HttpResponse('form_data')
