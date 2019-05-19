@@ -62,7 +62,7 @@ def jiaja(request):
         'alist': ['篮球', '游泳', '跑步'],
         # 'alist': [],
         'age': 6,
-        'tim': datetime.now()
+        'time': datetime.now()
     }
 
     return render(request, 'jiaja2模板的使用.html', context)
