@@ -9,6 +9,7 @@
     <h1>{{ adict.name }} :{{ adict.age }}</h1>
     <h1>喜欢的运动有：{{ alist }}</h1>
     <h2>喜欢的球类运动：{{ alist.0 }}</h2>
+    <h2>现在时间是：{{ time | date:"Y年m月d日" }}</h2>
     <h2>
         喜欢的运动：<br>
         {% for item in alist %}

@@ -6,5 +6,13 @@
 </head>
 <body>
     <h1>{{ alist[1] }}</h1>
+{#    <h2>现在时间是：{{ tim | date:"Y年m月d日" }}</h2> jiaja中时间不能调用 #}
+    <h2>字典的调用：{{ adict['name'] }} {{ adict.age }}</h2>
+    <h2>for循环</h2>
+    {% for item in alist %}
+        <h2>{{ loop.index }} --{{ item }}</h2>
+{#        <h2>{{ loop.index0 }} --{{ item }}</h2>  loop.index0 默认从0索引开始#}
+    {% endfor %}
+     <h2>自定义过滤器：{{ age | sum }}</h2>
 </body>
 </html>
