@@ -6,5 +6,26 @@
 </head>
 <body>
     <h1>{{ city }}</h1>
+    <h1>{{ adict.name }} :{{ adict.age }}</h1>
+    <h1>喜欢的运动有：{{ alist }}</h1>
+    <h2>喜欢的球类运动：{{ alist.0 }}</h2>
+    <h2>
+        喜欢的运动：<br>
+        {% for item in alist %}
+            {{ item }} ---{{ forloop.counter }}<br>  {# {{forloop.counter}}表示当前是第几次循环，从1开始 #}
+            {%empty%} {# 列表为空或不存在时执行此逻辑  #}
+            <h2>列表暂时为空！</h2>
+        {% endfor %}
+    </h2>
+    <h2>if的使用</h2>
+    {% if age > 18 %}
+        <h2>成年人</h2>
+    {% elif age > 12 %}
+        <h2>青少年</h2>
+    {% else %}
+        <h2>Baby</h2>
+    {% endif %}
+
+
 </body>
 </html>
