@@ -1,13 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="6c1fa343-3278-4f16-b0b7-752ff9425057" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/book/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shop/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/shop/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shop/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/shop/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/jiaja2模板的使用.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/jiaja2模板的使用.html" afterDir="false" />
-    </list>
+    <list default="true" id="6c1fa343-3278-4f16-b0b7-752ff9425057" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,7 +53,14 @@
       </file>
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/book/models.py">
-          <provider selected="true" editor-type-id="text-editor" />
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="249">
+              <caret line="29" column="32" selection-start-line="29" selection-start-column="32" selection-end-line="29" selection-end-column="32" />
+              <folding>
+                <element signature="e#0#28#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
@@ -111,6 +112,7 @@
         <option value="$PROJECT_DIR$/shop/urls.py" />
         <option value="$PROJECT_DIR$/book/urls.py" />
         <option value="$PROJECT_DIR$/book/views.py" />
+        <option value="$PROJECT_DIR$/book/models.py" />
       </list>
     </option>
   </component>
@@ -262,7 +264,7 @@
       <workItem from="1558183719914" duration="1679000" />
       <workItem from="1558231263825" duration="1793000" />
       <workItem from="1558242356565" duration="155000" />
-      <workItem from="1558242535383" duration="20965000" />
+      <workItem from="1558242535383" duration="21464000" />
     </task>
     <task id="LOCAL-00001" summary="添加命名空间和name">
       <created>1558013985424</created>
@@ -397,17 +399,24 @@
       <option name="project" value="LOCAL" />
       <updated>1558270669924</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="初始化model模型类">
+      <created>1558271569405</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1558271569405</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="44007000" />
+    <option name="totallyTimeSpent" value="44506000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1295" height="695" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2061439" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2061439" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -421,7 +430,7 @@
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
-      <window_info anchor="bottom" id="Terminal" order="11" visible="true" weight="0.330373" />
+      <window_info anchor="bottom" id="Terminal" order="11" weight="0.330373" />
       <window_info anchor="bottom" id="Python Console" order="12" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -453,7 +462,8 @@
     <MESSAGE value="jiaja2模板的引用" />
     <MESSAGE value="jiaja2模板自定义过滤器" />
     <MESSAGE value="自定义时间过滤器" />
-    <option name="LAST_COMMIT_MESSAGE" value="自定义时间过滤器" />
+    <MESSAGE value="初始化model模型类" />
+    <option name="LAST_COMMIT_MESSAGE" value="初始化model模型类" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/shop$manage.coverage" NAME="manage Coverage Results" MODIFIED="1558269475855" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
@@ -703,7 +713,14 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/book/models.py">
-      <provider selected="true" editor-type-id="text-editor" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="249">
+          <caret line="29" column="32" selection-start-line="29" selection-start-column="32" selection-end-line="29" selection-end-column="32" />
+          <folding>
+            <element signature="e#0#28#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
     </entry>
   </component>
 </project>
