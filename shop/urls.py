@@ -24,6 +24,7 @@ urlpatterns = [
     url('request/', include('request.urls',namespace='request')),
     url('response/', include('response.urls',namespace='response')),
     url('classview/', include('classsview.urls')),
+    url('mixin/', include('mixin.urls')),
     ]
     # path('admin/', admin.site.urls), django 2.0
 

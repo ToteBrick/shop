@@ -49,7 +49,8 @@ INSTALLED_APPS = [
     # 'goods.apps.GoodsConfig'
     'request.apps.RequestConfig',
     'response.apps.ResponseConfig',
-    'classsview.apps.ClasssviewConfig'
+    'classsview.apps.ClasssviewConfig',
+    'mixin.apps.MixinConfig'
 ]
 # 中间件
 MIDDLEWARE = [
