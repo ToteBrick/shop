@@ -51,7 +51,8 @@ INSTALLED_APPS = [
     'response.apps.ResponseConfig',
     'classsview.apps.ClasssviewConfig',
     'mixin.apps.MixinConfig',
-    'render.apps.RenderConfig'
+    'render.apps.RenderConfig',
+    'book.apps.BookConfig'
 ]
 # 中间件
 MIDDLEWARE = [

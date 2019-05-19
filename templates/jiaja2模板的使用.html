@@ -7,6 +7,7 @@
 <body>
     <h1>{{ alist[1] }}</h1>
 {#    <h2>现在时间是：{{ time | date:"Y年m月d日" }}</h2> jiaja中时间不能调用 #}
+  {#    调用自定义时间的过滤器  #}
     <h2>现在时间是：{{ time | date }}</h2>
     <h2>字典的调用：{{ adict['name'] }} {{ adict.age }}</h2>
     <h2>for循环</h2>
