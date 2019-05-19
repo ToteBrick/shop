@@ -32,7 +32,7 @@ ALLOWED_HOSTS = []
 
 # 生产环境  发布环境
 #DEBUG = False
-#ALLOWED_HOSTS = ['']
+#ALLOWED_HOSTS = [''] 如果是['*']，允许本地所有ip
 
 
 # Application definition
@@ -48,7 +48,8 @@ INSTALLED_APPS = [
     'users.apps.UsersConfig', # 注册应用
     # 'goods.apps.GoodsConfig'
     'request.apps.RequestConfig',
-    'response.apps.ResponseConfig'
+    'response.apps.ResponseConfig',
+    'classsview.apps.ClasssviewConfig'
 ]
 # 中间件
 MIDDLEWARE = [
