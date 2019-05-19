@@ -46,11 +46,12 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'users.apps.UsersConfig', # 注册应用
-    # 'goods.apps.GoodsConfig'
+    'goods.apps.GoodsConfig',
     'request.apps.RequestConfig',
     'response.apps.ResponseConfig',
     'classsview.apps.ClasssviewConfig',
-    'mixin.apps.MixinConfig'
+    'mixin.apps.MixinConfig',
+    'render.apps.RenderConfig'
 ]
 # 中间件
 MIDDLEWARE = [
@@ -71,7 +72,7 @@ ROOT_URLCONF = 'shop.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],  # 此处修改
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

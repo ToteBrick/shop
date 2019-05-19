@@ -25,6 +25,7 @@ urlpatterns = [
     url('response/', include('response.urls',namespace='response')),
     url('classview/', include('classsview.urls')),
     url('mixin/', include('mixin.urls')),
+    url('render/', include('render.urls')),
     ]
     # path('admin/', admin.site.urls), django 2.0
 
