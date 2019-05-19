@@ -61,6 +61,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    # 定义中间件
+    'shop.middleware.my_middleware'  # 添加中间件
 ]
 # djano项目入口 第一个路由配置  root_urlconf
 ROOT_URLCONF = 'shop.urls'
