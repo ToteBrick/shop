@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>filter的使用</title>
+</head>
+<body>
+<h2>filter的使用</h2>
+<h3>{{ number|safe }}</h3>
+<h3>列表的长度为:{{ alist|length }}</h3>
+<h3>默认值:{{ a|default:'a'}}</h3>  {# 注意default:后面不能有空格,且default前面是未声明的变量或值为空 #}
+<h3>默认值:{{ number|default:15}}</h3>
+<h3>默认值:{{ b|default:15}}</h3>
+</body>
+</html>
