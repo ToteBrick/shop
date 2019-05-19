@@ -48,3 +48,18 @@ def filter(request):
         'alist': ['篮球', '游泳', '跑步']
     }
     return render(request, 'filter的使用.html', context)
+
+
+def jiaja(request):
+    context = {
+        'city': '成都',
+        'adict': {
+            'name': 'Alice',
+            'age': 18
+        },
+        'alist': ['篮球', '游泳', '跑步'],
+        # 'alist': [],
+        'age': 6
+    }
+
+    return render(request, 'jiaja2模板的使用.html', context)

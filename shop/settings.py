@@ -71,10 +71,12 @@ ROOT_URLCONF = 'shop.urls'
 # template 模板配置
 TEMPLATES = [
     {
-        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        # 'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'BACKEND': 'django.template.backends.jinja2.Jinja2',#修改1
         'DIRS': [os.path.join(BASE_DIR, 'templates')],  # 此处修改
         'APP_DIRS': True,
         'OPTIONS': {
+            'environment': 'jinja2_env.environment',# 修改2
             'context_processors': [
                 'django.template.context_processors.debug',
                 'django.template.context_processors.request',
