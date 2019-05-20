@@ -69,12 +69,29 @@ MIDDLEWARE = [
 # djano项目入口 第一个路由配置  root_urlconf
 ROOT_URLCONF = 'shop.urls'
 
-# template 模板配置
+# django 默认 template 模板配置
+# TEMPLATES = [
+#     {
+#         # 'BACKEND': 'django.template.backends.django.DjangoTemplates',
+#         'DIRS': [os.path.join(BASE_DIR, 'templates')],  # 此处配置要渲染的网页目录
+#         'APP_DIRS': True,
+#         'OPTIONS': {
+#             'context_processors': [
+#                 'django.template.context_processors.debug',
+#                 'django.template.context_processors.request',
+#                 'django.contrib.auth.context_processors.auth',
+#                 'django.contrib.messages.context_processors.messages',
+#             ],
+#         },
+#     },
+# ]
+
+# jiaja2 template 模板配置
 TEMPLATES = [
     {
         # 'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'BACKEND': 'django.template.backends.jinja2.Jinja2',#修改1
-        'DIRS': [os.path.join(BASE_DIR, 'templates')],  # 此处修改
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],  # 此处配置要渲染的网页目录
         'APP_DIRS': True,
         'OPTIONS': {
             'environment': 'jinja2_env.environment',# 修改2
@@ -91,7 +108,7 @@ TEMPLATES = [
 WSGI_APPLICATION = 'shop.wsgi.application'
 
 
-# Database
+# 默认 Database sqlite3
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
 
 # 数据库的配置
@@ -101,7 +118,8 @@ WSGI_APPLICATION = 'shop.wsgi.application'
 #         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
 #     }
 # }
-# 修改数据库配置
+
+# 修改数据库配置 改为Mysql
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
@@ -141,6 +159,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # LANGUAGE_CODE = 'en-us'
 
 # TIME_ZONE = 'UTC'
+
 # 本地化
 LANGUAGE_CODE = 'zh-Hans'
 # 时区
