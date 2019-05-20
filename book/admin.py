@@ -20,7 +20,7 @@ class BookInfoAdmin(admin.ModelAdmin):
     # actions_on_bottom = False
     # 4.右侧栏过滤器,属性如下，只能接收字段，会将对应字段的值列出来，用于快速过滤。一般用于有重复值的字段。
     list_filter = ['btitle', 'bpub_date']
-    pass
+
 
 
 admin.site.register(BookInfo, BookInfoAdmin)  # 注册方式一
@@ -28,7 +28,10 @@ admin.site.register(BookInfo, BookInfoAdmin)  # 注册方式一
 
 @admin.register(HeroInfo)    # 注册方式二
 class HeroInfoAdmin(admin.ModelAdmin):
-    pass
+    list_per_page = 5
+    list_filter = ['hbook', 'hgender']
+    # 5 搜索框，属性如下，用于对指定字段的值进行搜索，支持模糊查询。列表类型，表示在这些字段上进行搜索。
+    search_fields = ['hname']
 
 
 # 站点首页设置
