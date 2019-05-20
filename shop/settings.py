@@ -72,7 +72,7 @@ ROOT_URLCONF = 'shop.urls'
 # django 默认 template 模板配置
 TEMPLATES = [
     {
-        # 'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [os.path.join(BASE_DIR, 'templates')],  # 此处配置要渲染的网页目录
         'APP_DIRS': True,
         'OPTIONS': {

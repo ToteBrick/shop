@@ -1,4 +1,4 @@
-{{ load sumfilter }}
+{%load sumfilter %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,6 +7,7 @@
 </head>
 <body>
     <h1>{{ city }}</h1>
+    <h2>自定义fliter:{{ age | sum }}</h2>
     <h1>{{ adict.name }} :{{ adict.age }}</h1>
     <h1>喜欢的运动有：{{ alist }}</h1>
     <h2>喜欢的球类运动：{{ alist.0 }}</h2>
