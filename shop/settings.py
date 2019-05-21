@@ -69,9 +69,10 @@ MIDDLEWARE = [
 # djano项目入口 第一个路由配置  root_urlconf
 ROOT_URLCONF = 'shop.urls'
 
-# django 默认 template 模板配置
+
 TEMPLATES = [
     {
+        # django 默认 template 模板配置
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [os.path.join(BASE_DIR, 'templates')],  # 此处配置要渲染的网页目录
 
@@ -104,40 +105,7 @@ TEMPLATES = [
 
 ]
 
-# TEMPLATES = [
-#     {
-#         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-#         'DIRS': [
-#             '/home/html/example.com',
-#             '/home/html/default',
-#         ],
-#     },
-#     {
-#         'BACKEND': 'django.template.backends.jinja2.Jinja2',
-#         'DIRS': [
-#             '/home/html/jinja2',
-#         ],
-#     },
-# ]
 
-# jiaja2 template 模板配置
-# TEMPLATES = [
-#     {
-#         # 'BACKEND': 'django.template.backends.django.DjangoTemplates',
-#         'BACKEND': 'django.template.backends.jinja2.Jinja2',#修改1
-#         'DIRS': [os.path.join(BASE_DIR, 'templates')],  # 此处配置要渲染的网页目录
-#         'APP_DIRS': True,
-#         'OPTIONS': {
-#             'environment': 'jinja2_env.environment',# 修改2
-#             'context_processors': [
-#                 'django.template.context_processors.debug',
-#                 'django.template.context_processors.request',
-#                 'django.contrib.auth.context_processors.auth',
-#                 'django.contrib.messages.context_processors.messages',
-#             ],
-#         },
-#     },
-# ]
 # 部署协议
 WSGI_APPLICATION = 'shop.wsgi.application'
 
