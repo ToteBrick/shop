@@ -44,3 +44,43 @@ def update(request):
     # hero.save()
     HeroInfo.objects.filter(hname='胡斐').update(hname='胡一刀')  # 修改的第二种方式
     return HttpResponse('update option')
+
+
+def query(request):
+    # 查询编号为1的图书
+    print(BookInfo.objects.filter(id=1))
+    # contains：是否包含，查询书名包含'传'的图书
+    print(BookInfo.objects.filter(btitle__contains='传'))
+    # 查询阅读量大于等于评论量的图书
+    # startswith、endswith：以指定值开头或结尾
+    print(BookInfo.objects.filter(btitle__endswith='部'))
+    # 查询书名不为空的图书
+    print(BookInfo.objects.filter(btitle__isnull=False))
+    # in ：是否包含在范围内,查询编号为1或3或5的图书
+    print(BookInfo.objects.filter(id__in=[1, 3, 5]))
+    '''
+比较查询
+gt 大于 (greater then)
+gte 大于等于 (greater then equal)
+lt 小于 (less then)
+lte 小于等于 (less then equal)
+    '''
+    # 查询编号大于3的图书
+    print(BookInfo.objects.filter(id__gt=3))
+    # year、month、day、week_day、hour、minute、second：对日期时间类型的属性进行运算
+    # 查询1980年发表的图书
+    print(BookInfo.objects.filter(bpub_date__year=1980))
+    # 查询1980年1月1日后发表的图书
+    print(BookInfo.objects.filter(bpub_date__gt=date(1990, 1, 1)))
+    from django.db.models import F, Q
+    print(BookInfo.objects.filter(bread__gte=F('bcomment')))
+    # 查询阅读量大于2倍评论量的图书
+    BookInfo.objects.filter(bread__gt=F('bcomment') * 2)
+    # Q对象，多个过滤器逐个调用表示逻辑与关系，同sql语句中where部分的and关键字
+    # 查询阅读量大于20，并且编号小于3的图书
+    print(BookInfo.objects.filter(bread__gt=20,id__lt=3))
+    # 查询阅读量大于20，或编号小于3的图书，只能使用Q对象实现
+    print(BookInfo.objects.filter(Q(bread__gt=20) | Q(pk__lt=3)))
+    # Q对象前可以使用~操作符，表示非not,如查询编号不等于3的图书
+    print(BookInfo.objects.filter(~Q(pk=3)))
+    return HttpResponse('query option')
