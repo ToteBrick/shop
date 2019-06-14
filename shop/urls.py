@@ -27,6 +27,7 @@ urlpatterns = [
     url('mixin/', include('mixin.urls')),
     url('render/', include('render.urls')),
     url('book/', include('book.urls')),
+    url(r'^', include('book.urls')), # 新增restful风格
     ]
     # path('admin/', admin.site.urls), django 2.0
 

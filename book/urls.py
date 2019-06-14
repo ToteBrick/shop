@@ -6,5 +6,7 @@ urlpatterns = [
     url('info/', views.info, name='info'),  # 增
     url('delete/', views.delete),  # 删
     url('update/', views.update),  # 修改
-    url('query/', views.query),    # 查
+    url('query/', views.query),  # 查
+    url(r'^books/$', views.BooksView.as_view()),
+    url(r'^books/(?P<pk>\d+)/$', views.BookView.as_view()),
 ]

@@ -1,6 +1,11 @@
-from django.http import HttpResponse
+import json
+
+from django.http import HttpResponse, JsonResponse
 from django.shortcuts import render
 from datetime import date
+
+from django.views import View
+
 from book.models import BookInfo, HeroInfo
 
 
@@ -78,9 +83,76 @@ lte 小于等于 (less then equal)
     BookInfo.objects.filter(bread__gt=F('bcomment') * 2)
     # Q对象，多个过滤器逐个调用表示逻辑与关系，同sql语句中where部分的and关键字
     # 查询阅读量大于20，并且编号小于3的图书
-    print(BookInfo.objects.filter(bread__gt=20,id__lt=3))
+    print(BookInfo.objects.filter(bread__gt=20, id__lt=3))
     # 查询阅读量大于20，或编号小于3的图书，只能使用Q对象实现
     print(BookInfo.objects.filter(Q(bread__gt=20) | Q(pk__lt=3)))
     # Q对象前可以使用~操作符，表示非not,如查询编号不等于3的图书
     print(BookInfo.objects.filter(~Q(pk=3)))
     return HttpResponse('query option')
+
+
+class BooksView(View):
+    def get(self, request):
+        '''
+        :param request:
+        :return: 查询所有图书
+        '''
+        books = BookInfo.objects.all()
+        books_list = []
+        for book in books:
+            books_list.append(book.btitle)
+            books_list.append(book.bpub_date)
+        return JsonResponse({
+            'books': books_list
+        })
+
+    def post(self, request):
+        """
+        :param request:
+        :return: 新增图书
+        """
+        data = json.loads(request.body.decode())
+        btitle = data.get('btitle')
+        bpub_date = data.get('bpub_date')
+        if btitle == 'python':
+            return JsonResponse({'errors': '书名错误'}, status=400)
+        book = BookInfo.objects.create(btitle=btitle, bpub_date=bpub_date)
+
+        return JsonResponse(
+            {'id': book.id, 'btitle': book.btitle, 'bpub_date': book.bpub_date}
+        )
+
+
+class BookView(View):
+    def put(self, request, pk):
+        '''
+        :param request:
+        :param pk:
+        :return: 修改图书
+        '''
+        data = json.loads(request.body.decode())
+        btitle = data.get('btitle')
+        bpub_date = data.get('bpub_date')
+        try:
+            book = BookInfo.objects.get(pk=pk)
+        except Exception:
+            return JsonResponse({'errors': '未找到该书'})
+        book.btitle = btitle
+        book.bpub_date = bpub_date
+        book.save()
+        return JsonResponse(
+            {'id': book.id, 'btitle': book.btitle, 'bpub_date': book.bpub_date}
+        )
+
+    def delete(self, request, pk):
+        '''
+        :param request:
+        :param pk:
+        :return: 删除图书
+        '''
+        try:
+            book = BookInfo.objects.get(pk=pk)
+        except Exception:
+            return JsonResponse({'errors': '未找到该书'})
+        book.delete()
+        return HttpResponse(status=204, content='删除成功！')
