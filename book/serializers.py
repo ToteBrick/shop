@@ -63,18 +63,21 @@ class BookSerializer(serializers.Serializer):
         return instance
 
 
-
 class BookModelSerializer(serializers.ModelSerializer):
     """图书数据序列化器"""
 
     class Meta:
         model = BookInfo
-        fields = '__all__'
+        # fields = '__all__'
+        # fields = ('id', 'btitle')  # 指定字段内容
+        exclude = ('bread',)  # 排除某个字段
+        read_only_fields = ('bcomment',)  # 添加read——only=true
 
-
-
-
-
+        extra_kwargs = {
+            'is_delete': {
+                'default': True
+            }
+        }
 
 
 class HeroSerializer1(serializers.Serializer):

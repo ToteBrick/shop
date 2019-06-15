@@ -56,8 +56,9 @@ class BookView(View):
         except Exception:
             return JsonResponse({'errors': '未找到该书'})
 
-        ser = BookSerializer(book, data=data)
-        ser.is_valid()
+        # ser = BookSerializer(book, data=data)
+        ser = BookModelSerializer(book, data=data)
+        ser.is_valid(raise_exception=True)
         ser.save()
         return JsonResponse(ser.data)
 
