@@ -9,7 +9,7 @@ from django.views import View
 from book.models import BookInfo, HeroInfo
 
 # 增加操作
-from book.serializers import BookSerializer
+from book.serializers import BookSerializer, BookModelSerializer
 
 
 class BooksView(View):
@@ -19,6 +19,8 @@ class BooksView(View):
         :return: 查询所有图书
         '''
         books = BookInfo.objects.all()
+        ser = BookModelSerializer(books, many=True)
+        return JsonResponse(ser.data, safe=False)
         # books_list = []
         # for book in books:
         #     books_list.append(book.btitle)
@@ -48,13 +50,16 @@ class BookView(View):
         :return: 修改图书
         '''
         data = json.loads(request.body.decode())
-        btitle = data.get('btitle')
-        bpub_date = data.get('bpub_date')
+        # btitle = data.get('btitle')
         try:
             book = BookInfo.objects.get(pk=pk)
         except Exception:
             return JsonResponse({'errors': '未找到该书'})
-        ser = BookSerializer(book)
+
+        ser = BookSerializer(book, data=data)
+        ser.is_valid()
+        ser.save()
+        return JsonResponse(ser.data)
 
     def delete(self, request, pk):
         '''

@@ -22,8 +22,8 @@ class HeroSerializer(serializers.Serializer):
 
 
 class BookSerializer(serializers.Serializer):
-    btitle = serializers.CharField(min_length=5, max_length=11)
-    bpub_date = serializers.DateField(write_only=True)
+    btitle = serializers.CharField()
+    # bpub_date = serializers.DateField(write_only=True)
     bcomment = serializers.IntegerField(min_value=1, max_value=50, default=2)
     bread = serializers.IntegerField(label='阅读量', required=False)
 
@@ -61,6 +61,20 @@ class BookSerializer(serializers.Serializer):
         instance.bread = validated_data.get('bread', instance.bread)
         instance.bcomment = validated_data.get('bcomment', instance.bcomment)
         return instance
+
+
+
+class BookModelSerializer(serializers.ModelSerializer):
+    """图书数据序列化器"""
+
+    class Meta:
+        model = BookInfo
+        fields = '__all__'
+
+
+
+
+
 
 
 class HeroSerializer1(serializers.Serializer):
