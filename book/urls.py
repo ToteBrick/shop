@@ -9,8 +9,8 @@ urlpatterns = [
     url('delete/', views.delete),  # 删
     url('update/', views.update),  # 修改
     url('query/', views.query),  # 查
-    url(r'^books/$', views.BooksView.as_view()),
-    url(r'^books/(?P<pk>\d+)/$', views.BookView.as_view()),
-#     url(r'^books/$', views_xu.BooksView.as_view()),
-#     url(r'^books/(?P<pk>\d+)/$', views_xu.BookView.as_view()),
+    # url(r'^books/$', views.BooksView.as_view()),
+    # url(r'^books/(?P<pk>\d+)/$', views.BookView.as_view()),
+    url(r'^books/$', views_xu.BooksView.as_view()),
+    url(r'^books/(?P<pk>\d+)/$', views_xu.BookView.as_view()),
 ]

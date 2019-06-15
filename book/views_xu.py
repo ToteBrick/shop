@@ -8,7 +8,6 @@ from django.views import View
 
 from book.models import BookInfo, HeroInfo
 
-
 # 增加操作
 from book.serializers import BookSerializer
 
@@ -27,9 +26,6 @@ class BooksView(View):
         # return JsonResponse({
         #     'books': books_list
         # })
-        ser = BookSerializer(books, many=True)
-        data = ser.data
-        return JsonResponse(data, safe=True)
 
     def post(self, request):
         """
@@ -40,6 +36,8 @@ class BooksView(View):
         ser = BookSerializer(data=data)
         ser.is_valid(raise_exception=True)
         print(ser.errors)
+        ser.save()
+        return JsonResponse(ser.data)
 
 
 class BookView(View):
@@ -57,6 +55,7 @@ class BookView(View):
         except Exception:
             return JsonResponse({'errors': '未找到该书'})
         ser = BookSerializer(book)
+
     def delete(self, request, pk):
         '''
         :param request:
