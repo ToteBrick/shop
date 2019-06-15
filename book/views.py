@@ -11,7 +11,7 @@ from book.models import BookInfo, HeroInfo
 # Create your views here.
 
 # 增加操作
-from book.serializers import BookSerializer
+from book.serializers import BookSerializer, HeroSerializer
 
 
 def info(request):
@@ -138,11 +138,13 @@ class BookView(View):
         :return: 查询单一图书
         '''
         try:
-            book = BookInfo.objects.get(pk=pk)
+            # book = BookInfo.objects.get(pk=pk)
+            hero = HeroInfo.objects.get(pk=pk)
         except Exception:
-            return JsonResponse({'errors': '未找到该书'})
-        ser = BookSerializer(book)
-        return JsonResponse(ser.data)
+            return JsonResponse({'errors': '未找到该id的英雄'})
+        # ser = BookSerializer(book)
+        ser1 = HeroSerializer(hero)
+        return JsonResponse(ser1.data)
 
     def put(self, request, pk):
         '''

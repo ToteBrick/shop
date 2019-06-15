@@ -1,6 +1,11 @@
 from rest_framework import serializers
 
 
+class BookSerializer1(serializers.Serializer):
+    btitle = serializers.CharField()
+    bpub_date = serializers.DateField()
+
+
 class HeroSerializer(serializers.Serializer):
     """英雄数据序列化器"""
     GENDER_CHOICES = (
@@ -11,7 +16,7 @@ class HeroSerializer(serializers.Serializer):
     hname = serializers.CharField(label='名字', max_length=20)
     hgender = serializers.ChoiceField(choices=GENDER_CHOICES, label='性别', required=False)
     hcomment = serializers.CharField(label='描述信息', max_length=200, required=False, allow_null=True)
-
+    hbook = BookSerializer1()
 
 class BookSerializer(serializers.Serializer):
     btitle = serializers.CharField(min_length=5, max_length=11)
