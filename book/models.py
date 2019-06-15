@@ -3,7 +3,8 @@ from django.db import models
 # Create your models here.
 from django.db import models
 
-#定义图书模型类BookInfo
+
+# 定义图书模型类BookInfo
 class BookInfo(models.Model):
     btitle = models.CharField(max_length=20, verbose_name='名称')
     bpub_date = models.DateField(verbose_name='发布日期')
@@ -20,7 +21,8 @@ class BookInfo(models.Model):
         """定义每个数据对象的显示信息"""
         return self.btitle
 
-#定义英雄模型类HeroInfo
+
+# 定义英雄模型类HeroInfo
 class HeroInfo(models.Model):
     GENDER_CHOICES = (
         (0, 'female'),
@@ -29,7 +31,7 @@ class HeroInfo(models.Model):
     hname = models.CharField(max_length=20, verbose_name='名称')
     hgender = models.SmallIntegerField(choices=GENDER_CHOICES, default=0, verbose_name='性别')
     hcomment = models.CharField(max_length=200, null=True, verbose_name='描述信息')
-    hbook = models.ForeignKey(BookInfo, on_delete=models.CASCADE, verbose_name='图书')  # 外键
+    hbook = models.ForeignKey(BookInfo, related_name='heroes', on_delete=models.CASCADE, verbose_name='图书')  # 外键
     is_delete = models.BooleanField(default=False, verbose_name='逻辑删除')
 
     class Meta:

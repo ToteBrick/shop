@@ -8,10 +8,12 @@ from django.views import View
 
 from book.models import BookInfo, HeroInfo
 
-
 # Create your views here.
 
 # 增加操作
+from book.serializers import BookSerializer
+
+
 def info(request):
     book = BookInfo(btitle='西游记', bpub_date=date(1984, 3, 15), bread=21, bcomment=22)  # 增加
     book.save()  # 保存进数据库
@@ -98,13 +100,16 @@ class BooksView(View):
         :return: 查询所有图书
         '''
         books = BookInfo.objects.all()
-        books_list = []
-        for book in books:
-            books_list.append(book.btitle)
-            books_list.append(book.bpub_date)
-        return JsonResponse({
-            'books': books_list
-        })
+        # books_list = []
+        # for book in books:
+        #     books_list.append(book.btitle)
+        #     books_list.append(book.bpub_date)
+        # return JsonResponse({
+        #     'books': books_list
+        # })
+        ser = BookSerializer(books, many=True)
+        data = ser.data
+        return JsonResponse(data, safe=False)
 
     def post(self, request):
         """
@@ -112,18 +117,33 @@ class BooksView(View):
         :return: 新增图书
         """
         data = json.loads(request.body.decode())
-        btitle = data.get('btitle')
-        bpub_date = data.get('bpub_date')
-        if btitle == 'python':
-            return JsonResponse({'errors': '书名错误'}, status=400)
-        book = BookInfo.objects.create(btitle=btitle, bpub_date=bpub_date)
-
-        return JsonResponse(
-            {'id': book.id, 'btitle': book.btitle, 'bpub_date': book.bpub_date}
-        )
+        # ser = BookSerializer()
+        # btitle = data.get('btitle')
+        # bpub_date = data.get('bpub_date')
+        # if btitle == 'python':
+        #     return JsonResponse({'errors': '书名错误'}, status=400)
+        # book = BookInfo.objects.create(btitle=btitle, bpub_date=bpub_date)
+        #
+        # return JsonResponse(
+        #     {'id': book.id, 'btitle': book.btitle, 'bpub_date': book.bpub_date}
+        # )
 
 
 class BookView(View):
+
+    def get(self, request, pk):
+        '''
+        :param request:
+        :param pk:
+        :return: 查询单一图书
+        '''
+        try:
+            book = BookInfo.objects.get(pk=pk)
+        except Exception:
+            return JsonResponse({'errors': '未找到该书'})
+        ser = BookSerializer(book)
+        return JsonResponse(ser.data)
+
     def put(self, request, pk):
         '''
         :param request:
